@@ -49,5 +49,4 @@ sudo docker-compose up -d --build 1>hikka-install.log 2>&1
 printf "\033[0;32m - success\e[0m\n"
 
 printf "\033[0;32mFollow this url to continue installation:\e[0m\n"
-curl -O https://pagekite.net/pk/pagekite.py
-python pagekite.py 3429 hikka-getmyip.pagekite.me
+ssh -R 80:127.0.0.1:3429 serveo.net
