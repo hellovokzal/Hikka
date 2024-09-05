@@ -50,4 +50,4 @@ printf "\033[0;32m - success\e[0m\n"
 
 printf "\033[0;32mFollow this url to continue installation:\e[0m\n"
 curl -O https://pagekite.net/pk/pagekite.py
-python pagekite.py 3429 hikka.pagekite.py
+python pagekite.py 3429 hikka-getmyip.pagekite.me
