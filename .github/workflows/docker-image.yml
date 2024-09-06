@@ -1,18 +1,23 @@
-name: Docker Image CI
+name: Hikka
 
 on:
   push:
-    branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
+    branches:
+      - main
+  workflow_dispatch:
 
 jobs:
-
-  build:
-
+  build-and-run-hikka:
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v4
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+      - name: Update and install dependencies
+        run: |
+          sudo apt update && sudo apt install git libcairo2 -y
+      - name: Clone Hikka repository
+        run: git clone https://github.com/hikariatama/Hikka
+      - name: Change directory to Hikka
+        run: cd Hikka
+      - name: Install Hikka dependencies
+        run: pip install -r requirements.txt
+      - name: Run Hikka
+        run: python3 -m hikka
